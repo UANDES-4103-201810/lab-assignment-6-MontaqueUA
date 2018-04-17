@@ -25,19 +25,24 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    #complete this method
+    User.create(name: user_params[:name],
+                last_name: user_params[:last_name],
+                email: user_params[:email],
+                phone: user_params[:phone],
+                password: user_params[:password],
+                address: user_params[:address])
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    #complete this method
+    # @user = User.update(user_params [:name,:last_name,:email,:phone,:password])
   end
 
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    #complete this method
+    @user = User.destroy(user_params[:user][:id])
   end
 
   private

@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-	#complete this method
+	  @_current_user ||= session[:current_user] &&
+        User.find_by(id: session[:current_user])
   end
 
   def is_user_logged_in?
